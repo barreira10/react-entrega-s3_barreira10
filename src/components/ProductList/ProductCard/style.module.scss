@@ -1,0 +1,47 @@
+.card {
+    border: 2px solid var(--gray300);
+    border-radius: 5px;
+    width: 300px;
+    min-width: 280px;
+    height: max-content;
+  
+    &:has(button:hover) {
+      border-color: var(--color-primary);
+      border-radius: 5px;
+    }
+  
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+  
+      .imgContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        background-color: var(--gray400);
+        height: 150px;
+  
+        img {
+          height: 150px;
+        }
+      }
+  
+      h3 {
+        padding: 20px 21px 0;
+        margin-bottom: 0.3125rem;
+      }
+  
+      span {
+        padding: 0 21px;
+        margin-bottom: 0.625rem;
+      }
+  
+      .buttonBox {
+        padding: 0px 21px 20px;
+        margin-bottom: 0;
+      }
+    }
+  }

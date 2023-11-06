@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    gap: 44px;
+    overflow-x: scroll;
+    margin-top: 1rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .list {
+      margin-top: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+      overflow-x: inherit;
+    }
+  }
+  
+  @media (min-width: 1368px) {
+    .list {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }

@@ -1,0 +1,19 @@
+.btn {
+    padding: 10px 20px;
+    background-color: var(--gray-btn);
+    border: 1px solid transparent;
+    border-radius: 8px;
+  
+    font-family: var(--font-primary);
+    font-weight: 1rem;
+    font-weight: 600;
+    color: var(--white-btn);
+  
+    &.large {
+      padding: 20px;
+    }
+  
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }

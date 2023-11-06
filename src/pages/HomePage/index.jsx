@@ -1,26 +1,47 @@
-import { useState } from "react";
-import { CartModal } from "../../components/CartModal";
+import { useEffect, useState } from "react";
+
 import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
+import { burguerApi } from "../../services";
+import "../../styles/index.scss";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
-export const HomePage = () => {
-   const [productList, setProductList] = useState([]);
-   const [cartList, setCartList] = useState([]);
+export const HomePage = ({ setIsVisible, addCartList, cartList }) => {
+  const [productList, setProductList] = useState([]);
+  const [search, setSearch] = useState("");
 
-   // useEffect montagem - carrega os produtos da API e joga em productList
-   // useEffect atualização - salva os produtos no localStorage (carregar no estado)
-   // adição, exclusão, e exclusão geral do carrinho
-   // renderizações condições e o estado para exibir ou não o carrinho
-   // filtro de busca
-   // estilizar tudo com sass de forma responsiva
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await burguerApi.get("products");
+        setProductList(data);
+      } catch (error) {
+        toast.warning("Por favor, tente novamente mais tarde!");
+      }
+    };
+    getProducts();
+  }, []);
 
-   return (
-      <>
-         <Header />
-         <main>
-            <ProductList productList={productList} />
-            <CartModal cartList={cartList} />
-         </main>
-      </>
-   );
+  const filteredProducts = productList.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const renderProducts = search ? filteredProducts : productList;
+
+  return (
+    <>
+      <Header
+        setIsVisible={setIsVisible}
+        cartList={cartList}
+        setSearch={setSearch}
+      />
+      <main>
+        <ProductList
+          renderProducts={renderProducts}
+          addCartList={addCartList}
+        />
+      </main>
+    </>
+  );
 };

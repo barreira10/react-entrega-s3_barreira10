@@ -1,0 +1,50 @@
+.cardItem {
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  
+    .productBox {
+      position: relative;
+      display: flex;
+      gap: 12px;
+  
+      span {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        height: 24px;
+        width: 20px;
+        border-radius: 7px;
+        background-color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        p {
+          font-family: var(--font-primary);
+          color: var(--white-btn);
+          font-weight: 900;
+        }
+      }
+  
+      div {
+        height: 80px;
+        width: 82.26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--gray300);
+  
+        img {
+          height: 53.49px;
+          width: 55px;
+        }
+      }
+    }
+  
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
